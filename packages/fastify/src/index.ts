@@ -5,8 +5,8 @@ import type {
   FastifyReply,
   HookHandlerDoneFunction,
 } from 'fastify';
-import { ReqlogServer, createInterceptor } from '@reqlog/core';
-import type { ReqlogOptions, InterceptorRequest, InterceptorResponse } from '@reqlog/core';
+import { ReqlogServer, createInterceptor } from 'reqlog-core';
+import type { ReqlogOptions, InterceptorRequest, InterceptorResponse } from 'reqlog-core';
 
 export const reqlogPlugin = fp(
   async (fastify: FastifyInstance, options: ReqlogOptions) => {
@@ -28,4 +28,4 @@ export const reqlogPlugin = fp(
   { name: 'reqlog' }
 );
 
-export type { ReqlogOptions } from '@reqlog/core';
+export type { ReqlogOptions } from 'reqlog-core';

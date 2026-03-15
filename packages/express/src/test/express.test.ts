@@ -10,7 +10,7 @@ function httpGet(url: string): Promise<{ status: number; body: string }> {
   }));
 }
 
-describe('@reqlog/express', () => {
+describe('reqlog-express', () => {
   let appServer: Server | undefined;
 
   afterEach(async () => {

@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.1.0",
   "dependencies": {
-    "@reqlog/express": "workspace:*",
+    "reqlog-express": "workspace:*",
     "express": "^4.18.0"
   },
   "devDependencies": {

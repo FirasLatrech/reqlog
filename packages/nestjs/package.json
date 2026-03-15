@@ -1,5 +1,5 @@
 {
-  "name": "@reqlog/nestjs",
+  "name": "reqlog-nestjs",
   "version": "0.1.0",
   "description": "NestJS middleware for reqlog HTTP request logger",
   "license": "MIT",
@@ -30,7 +30,7 @@
     "prepack": "bun run clean && bun run build"
   },
   "dependencies": {
-    "@reqlog/core": "0.1.0"
+    "reqlog-core": "0.1.0"
   },
   "peerDependencies": {
     "@nestjs/common": ">=9.0.0",

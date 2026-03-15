@@ -5,7 +5,7 @@ import {
   MiddlewareConsumer,
 } from '@nestjs/common';
 import { ReqlogMiddleware } from './reqlog.middleware.js';
-import type { ReqlogOptions } from '@reqlog/core';
+import type { ReqlogOptions } from 'reqlog-core';
 
 export const REQLOG_OPTIONS = 'REQLOG_OPTIONS';
 

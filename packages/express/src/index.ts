@@ -1,6 +1,6 @@
 import type { RequestHandler } from 'express';
-import { ReqlogServer, createInterceptor } from '@reqlog/core';
-import type { ReqlogOptions } from '@reqlog/core';
+import { ReqlogServer, createInterceptor } from 'reqlog-core';
+import type { ReqlogOptions } from 'reqlog-core';
 
 export function reqlog(options: ReqlogOptions = {}): RequestHandler {
   const server = new ReqlogServer(options);
@@ -26,4 +26,4 @@ export function reqlog(options: ReqlogOptions = {}): RequestHandler {
   }) as RequestHandler;
 }
 
-export type { ReqlogOptions } from '@reqlog/core';
+export type { ReqlogOptions } from 'reqlog-core';

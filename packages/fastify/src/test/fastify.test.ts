@@ -10,7 +10,7 @@ function httpGet(url: string): Promise<{ status: number; body: string }> {
   }));
 }
 
-describe('@reqlog/fastify', () => {
+describe('reqlog-fastify', () => {
   let app: FastifyInstance | undefined;
 
   afterEach(async () => {

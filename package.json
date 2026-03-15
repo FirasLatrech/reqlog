@@ -11,7 +11,7 @@
   },
   "workspaces": ["packages/*", "examples/*"],
   "scripts": {
-    "build": "bun run --filter @reqlog/core build && bun run --filter @reqlog/dashboard build && bun run --filter @reqlog/nestjs build && bun run --filter @reqlog/express build && bun run --filter @reqlog/fastify build",
+    "build": "bun run --filter reqlog-core build && bun run --filter @reqlog/dashboard build && bun run --filter reqlog-nestjs build && bun run --filter reqlog-express build && bun run --filter reqlog-fastify build",
     "dev": "bun run --filter @reqlog/dashboard dev",
     "typecheck": "tsc -b",
     "test": "bun test packages/core/src/test packages/express/src/test packages/fastify/src/test",

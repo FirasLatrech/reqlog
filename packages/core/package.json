@@ -1,5 +1,5 @@
 {
-  "name": "@reqlog/core",
+  "name": "reqlog-core",
   "version": "0.1.0",
   "description": "Framework-agnostic HTTP request logger engine with live dashboard",
   "license": "MIT",

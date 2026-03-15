@@ -1,7 +1,7 @@
 import { Injectable, NestMiddleware, Inject } from '@nestjs/common';
 import type * as http from 'http';
-import { ReqlogServer, createInterceptor } from '@reqlog/core';
-import type { ReqlogOptions, InterceptorRequest, InterceptorResponse } from '@reqlog/core';
+import { ReqlogServer, createInterceptor } from 'reqlog-core';
+import type { ReqlogOptions, InterceptorRequest, InterceptorResponse } from 'reqlog-core';
 import { REQLOG_OPTIONS } from './reqlog.module.js';
 
 @Injectable()

@@ -1,5 +1,5 @@
 import express from 'express';
-import { reqlog } from '@reqlog/express';
+import { reqlog } from 'reqlog-express';
 
 const app = express();
 
