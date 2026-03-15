@@ -18,13 +18,6 @@
 
 <br/>
 
-<!-- TODO: Replace with actual GIF once recorded -->
-<!-- <p align="center">
-  <img src="docs/demo.gif" alt="reqlog demo" width="800" />
-</p> -->
-
-> **GIF placeholder** — Record a ~40s screencast: start a NestJS/Express server with reqlog, hit a few endpoints with curl/Postman, watch requests stream into the dashboard in real time, click to inspect headers + body, use the diff view. Drop it in `docs/demo.gif` and uncomment the block above.
-
 ---
 
 ## Install
