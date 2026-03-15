@@ -1,0 +1,51 @@
+{
+  "name": "@reqlog/nestjs",
+  "version": "0.1.0",
+  "description": "NestJS middleware for reqlog HTTP request logger",
+  "license": "MIT",
+  "keywords": ["nestjs", "nest", "http", "request", "logger", "middleware", "debugger", "dashboard", "reqlog"],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FirasLatrech/reqlog.git",
+    "directory": "packages/nestjs"
+  },
+  "homepage": "https://github.com/FirasLatrech/reqlog#readme",
+  "bugs": {
+    "url": "https://github.com/FirasLatrech/reqlog/issues"
+  },
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": ["dist"],
+  "exports": {
+    ".": {
+      "import": "./dist/esm/index.js",
+      "require": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "engines": { "node": ">=18.0.0" },
+  "scripts": {
+    "build": "tsc -b && tsc -p tsconfig.esm.json && echo '{\"type\":\"module\"}' > dist/esm/package.json",
+    "clean": "rm -rf dist",
+    "prepack": "bun run clean && bun run build"
+  },
+  "dependencies": {
+    "@reqlog/core": "0.1.0"
+  },
+  "peerDependencies": {
+    "@nestjs/common": ">=9.0.0",
+    "@nestjs/core": ">=9.0.0",
+    "reflect-metadata": ">=0.1.12"
+  },
+  "peerDependenciesMeta": {
+    "@nestjs/common": { "optional": false },
+    "@nestjs/core": { "optional": false }
+  },
+  "devDependencies": {
+    "typescript": "^5.4.0",
+    "@types/node": "^20.0.0",
+    "@nestjs/common": "^10.0.0",
+    "@nestjs/core": "^10.0.0",
+    "reflect-metadata": ">=0.1.12"
+  }
+}
