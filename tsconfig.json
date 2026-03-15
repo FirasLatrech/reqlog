@@ -8,9 +8,9 @@
     "esModuleInterop": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
-    "moduleResolution": "Node16",
+    "moduleResolution": "node10",
     "target": "ES2020",
-    "module": "Node16",
+    "module": "CommonJS",
     "lib": ["ES2020"]
   },
   "references": [

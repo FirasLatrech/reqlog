@@ -2,7 +2,8 @@
   "extends": "../../tsconfig.json",
   "compilerOptions": {
     "outDir": "dist",
-    "rootDir": "src"
+    "rootDir": "src",
+    "paths": { "reqlog-core": ["../core/dist/index"] }
   },
   "references": [
     { "path": "../core" }
