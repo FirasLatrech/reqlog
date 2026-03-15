@@ -1,0 +1,107 @@
+.request-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 16px;
+  cursor: pointer;
+  border-bottom: 1px solid var(--border-subtle);
+  transition: all 0.2s ease;
+  min-height: 48px;
+  position: relative;
+}
+
+.request-row:last-child {
+  border-bottom: none;
+}
+
+.request-row:hover {
+  background: var(--bg-hover);
+}
+
+.request-row.selected {
+  background: var(--bg-selected);
+}
+
+.request-row.slow {
+  /* subtly indicate slow requests */
+}
+
+.request-path {
+  flex: 1;
+  font-size: 13px;
+  color: var(--text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-family: 'Geist Mono', 'JetBrains Mono', ui-monospace, monospace;
+  font-weight: 400;
+}
+
+.request-row.selected .request-path {
+  color: var(--text-primary);
+}
+
+.request-row-right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.method-badge {
+  font-size: 10px;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 999px; /* Pill shape */
+  letter-spacing: 0.02em;
+  font-family: 'Inter', system-ui, sans-serif;
+  flex-shrink: 0;
+  min-width: 50px;
+  text-align: center;
+  text-transform: uppercase;
+  border: 1px solid transparent;
+}
+
+/* Minimalist Method Badges (Subtle Backgrounds) */
+.method-get    { background: rgba(59, 130, 246, 0.1); color: var(--method-get); border-color: rgba(59, 130, 246, 0.2); }
+.method-post   { background: rgba(34, 197, 94, 0.1); color: var(--method-post); border-color: rgba(34, 197, 94, 0.2); }
+.method-put    { background: rgba(245, 158, 11, 0.1); color: var(--method-put); border-color: rgba(245, 158, 11, 0.2); }
+.method-patch  { background: rgba(16, 185, 129, 0.1); color: var(--method-patch); border-color: rgba(16, 185, 129, 0.2); }
+.method-delete { background: rgba(239, 68, 68, 0.1); color: var(--method-delete); border-color: rgba(239, 68, 68, 0.2); }
+.method-options,
+.method-head   { background: var(--bg-tertiary); color: var(--text-secondary); border-color: var(--border); }
+
+/* Theme-aware backgrounds for method badges */
+:global(:root[data-theme="light"]) .method-get    { background: rgba(37, 99, 235, 0.1); border-color: rgba(37, 99, 235, 0.2); }
+:global(:root[data-theme="light"]) .method-post   { background: rgba(22, 163, 74, 0.1); border-color: rgba(22, 163, 74, 0.2); }
+:global(:root[data-theme="light"]) .method-put    { background: rgba(217, 119, 6, 0.1); border-color: rgba(217, 119, 6, 0.2); }
+:global(:root[data-theme="light"]) .method-patch  { background: rgba(5, 150, 105, 0.1); border-color: rgba(5, 150, 105, 0.2); }
+:global(:root[data-theme="light"]) .method-delete { background: rgba(220, 38, 38, 0.1); border-color: rgba(220, 38, 38, 0.2); }
+
+.status-chip {
+  font-size: 12px;
+  font-weight: 500;
+  font-family: 'Geist Mono', 'JetBrains Mono', ui-monospace, monospace;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.status-2xx { color: var(--status-2xx); }
+.status-3xx { color: var(--status-3xx); }
+.status-4xx { color: var(--status-4xx); }
+.status-5xx { color: var(--status-5xx); }
+.status-1xx { color: var(--text-secondary); }
+
+.latency-chip {
+  font-size: 11px;
+  color: var(--text-muted);
+  font-family: 'Inter', system-ui, sans-serif;
+  min-width: 40px;
+  text-align: right;
+  font-feature-settings: "tnum";
+}
+
+.latency-chip.latency-slow {
+  color: var(--slow-color);
+  font-weight: 500;
+}

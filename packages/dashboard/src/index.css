@@ -1,0 +1,129 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  /* Common Variables */
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 8px;
+
+  /* Default to Dark Theme (Zinc-based) */
+  --bg-primary: #09090b;   /* Zinc 950 */
+  --bg-secondary: #09090b; /* Zinc 950 (flat) */
+  --bg-tertiary: #18181b;  /* Zinc 900 */
+  --bg-hover: #27272a;     /* Zinc 800 */
+  --bg-selected: #27272a;  /* Zinc 800 */
+  
+  --border: #27272a;       /* Zinc 800 */
+  --border-subtle: #18181b; /* Zinc 900 */
+  --border-selected: #3f3f46; /* Zinc 700 */
+
+  --text-primary: #fafafa; /* Zinc 50 */
+  --text-secondary: #a1a1aa; /* Zinc 400 */
+  --text-muted: #71717a;   /* Zinc 500 */
+  
+  --accent: #ffffff;       /* White accent */
+  --accent-contrast: #000000;
+
+  /* Status Colors (Dark Mode) */
+  --method-get: #60a5fa;    /* Blue 400 */
+  --method-post: #4ade80;   /* Green 400 */
+  --method-put: #fbbf24;    /* Amber 400 */
+  --method-patch: #34d399;  /* Emerald 400 */
+  --method-delete: #f87171; /* Red 400 */
+  --method-options: #a1a1aa; /* Zinc 400 */
+  --method-head: #a1a1aa;
+
+  --status-2xx: #4ade80;
+  --status-3xx: #60a5fa;
+  --status-4xx: #fbbf24;
+  --status-5xx: #f87171;
+
+  --slow-color: #fbbf24;
+  --slow-border: #fbbf2444;
+
+  /* Diff Colors (Dark Mode) */
+  --diff-added-bg: rgba(34, 197, 94, 0.1);
+  --diff-added-text: #4ade80;
+  --diff-removed-bg: rgba(239, 68, 68, 0.1);
+  --diff-removed-text: #f87171;
+  
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--text-primary);
+  background: var(--bg-primary);
+  letter-spacing: -0.01em;
+}
+
+/* Light Theme (Zinc-based) */
+:root[data-theme="light"] {
+  --bg-primary: #ffffff;   /* White */
+  --bg-secondary: #ffffff; /* White (flat) */
+  --bg-tertiary: #f4f4f5;  /* Zinc 100 */
+  --bg-hover: #f4f4f5;     /* Zinc 100 */
+  --bg-selected: #f4f4f5;  /* Zinc 100 */
+  
+  --border: #e4e4e7;       /* Zinc 200 */
+  --border-subtle: #f4f4f5; /* Zinc 100 */
+  --border-selected: #d4d4d8; /* Zinc 300 */
+
+  --text-primary: #09090b; /* Zinc 950 */
+  --text-secondary: #52525b; /* Zinc 600 */
+  --text-muted: #a1a1aa;   /* Zinc 400 */
+  
+  --accent: #09090b;       /* Zinc 950 accent */
+  --accent-contrast: #ffffff;
+
+  /* Status Colors (Light Mode - Slightly darker for contrast) */
+  --method-get: #2563eb;    /* Blue 600 */
+  --method-post: #16a34a;   /* Green 600 */
+  --method-put: #d97706;    /* Amber 600 */
+  --method-patch: #059669;  /* Emerald 600 */
+  --method-delete: #dc2626; /* Red 600 */
+  --method-options: #71717a; /* Zinc 500 */
+  --method-head: #71717a;
+
+  --status-2xx: #16a34a;
+  --status-3xx: #2563eb;
+  --status-4xx: #d97706;
+  --status-5xx: #dc2626;
+
+  --slow-color: #d97706;
+  --slow-border: #d9770644;
+
+  /* Diff Colors (Light Mode) */
+  --diff-added-bg: rgba(22, 163, 74, 0.1);
+  --diff-added-text: #15803d;
+  --diff-removed-bg: rgba(220, 38, 38, 0.1);
+  --diff-removed-text: #b91c1c;
+}
+
+
+body {
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+#root {
+  height: 100vh;
+  overflow: hidden;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+}
+
+pre, code {
+  font-family: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', ui-monospace,
+    SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace;
+  font-size: 12px;
+}

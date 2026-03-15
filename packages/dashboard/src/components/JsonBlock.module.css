@@ -1,0 +1,21 @@
+.body-section {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.json-block {
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 16px;
+  color: var(--text-primary);
+  overflow-x: auto;
+  white-space: pre-wrap;
+  word-break: break-word;
+  line-height: 1.6;
+  font-family: 'Geist Mono', 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 13px;
+}
+
+.empty-body { color: var(--text-muted); font-style: italic; font-size: 12px; }

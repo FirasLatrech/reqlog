@@ -1,0 +1,116 @@
+.request-list {
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid var(--border);
+  overflow: hidden;
+  background: var(--bg-primary);
+}
+
+.list-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Push actions to right */
+  gap: 12px;
+  padding: 16px 16px;
+  border-bottom: 1px solid var(--border);
+  background: var(--bg-primary);
+  flex-shrink: 0;
+  height: 56px;
+}
+
+.logo-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.logo {
+  height: 20px;
+  width: auto;
+  opacity: 0.9;
+}
+
+.list-count {
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  background: var(--bg-tertiary);
+  padding: 2px 8px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-left: auto; /* Ensure right alignment */
+}
+
+.theme-toggle {
+  font-size: 14px;
+  padding: 4px;
+  border-radius: var(--radius-sm);
+  color: var(--text-secondary);
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+}
+
+.theme-toggle:hover {
+  background: var(--bg-tertiary);
+  color: var(--text-primary);
+}
+
+.btn-clear {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  color: var(--text-secondary);
+  border-radius: var(--radius-sm);
+  border: 1px solid transparent;
+  background: transparent;
+  transition: all 0.2s ease;
+  padding: 0;
+}
+
+.btn-clear:hover {
+  background: var(--bg-tertiary);
+  color: var(--method-delete); /* Red on hover for trash */
+}
+
+.conn-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  box-shadow: 0 0 0 2px var(--bg-primary); /* Ring effect */
+}
+
+.conn-open { background: var(--status-2xx); }
+.conn-connecting { background: var(--status-4xx); }
+.conn-error { background: var(--status-5xx); }
+
+.list-body {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.list-body::-webkit-scrollbar { width: 4px; }
+.list-body::-webkit-scrollbar-track { background: transparent; }
+.list-body::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+
+.list-empty {
+  padding: 48px 24px;
+  text-align: center;
+  color: var(--text-secondary);
+}
+
+.list-empty p:first-child { font-size: 14px; margin-bottom: 6px; }
+.list-empty .hint { font-size: 12px; color: var(--text-muted); }

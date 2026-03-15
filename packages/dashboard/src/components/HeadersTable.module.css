@@ -1,0 +1,39 @@
+.headers-section {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.section-title {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 8px;
+}
+
+.headers-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+  font-family: 'Geist Mono', 'JetBrains Mono', ui-monospace, monospace;
+}
+
+.headers-table tr { border-bottom: 1px solid var(--border-subtle); }
+.headers-table tr:last-child { border-bottom: none; }
+
+.header-key {
+  padding: 8px 16px 8px 0;
+  color: var(--text-secondary);
+  white-space: nowrap;
+  vertical-align: top;
+  width: 1px; /* collapse to min width */
+}
+
+.header-val {
+  padding: 8px 0;
+  color: var(--text-primary);
+  word-break: break-all;
+  line-height: 1.5;
+}

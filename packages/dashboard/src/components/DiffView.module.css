@@ -1,0 +1,52 @@
+.diff-view {
+  font-family: 'Geist Mono', 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 13px;
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  overflow: auto;
+  line-height: 1.6;
+}
+
+.diff-line {
+  display: flex;
+  gap: 8px;
+  padding: 2px 16px;
+}
+
+.diff-added {
+  background: var(--diff-added-bg);
+  color: var(--diff-added-text);
+}
+
+.diff-removed {
+  background: var(--diff-removed-bg);
+  color: var(--diff-removed-text);
+}
+
+.diff-unchanged {
+  color: var(--text-secondary);
+}
+
+.diff-sign {
+  user-select: none;
+  opacity: 0.5;
+  min-width: 12px;
+  text-align: center;
+}
+
+.diff-text {
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.diff-identical {
+  padding: 24px;
+  color: var(--text-muted);
+  font-size: 13px;
+  font-style: italic;
+  background: var(--bg-tertiary);
+  border: 1px dashed var(--border-subtle);
+  border-radius: var(--radius-md);
+  text-align: center;
+}
