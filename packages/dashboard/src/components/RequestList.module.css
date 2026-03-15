@@ -38,13 +38,29 @@
   padding: 2px 8px;
   border-radius: 999px;
   border: 1px solid var(--border);
+  min-width: 20px;
+  text-align: center;
 }
 
 .header-actions {
   display: flex;
   align-items: center;
+  justify-content: flex-end; /* Align everything to the right */
+  flex: 1;
+  margin-left: 12px;
+}
+
+.action-group-right {
+  display: flex;
+  align-items: center;
   gap: 12px;
-  margin-left: auto; /* Ensure right alignment */
+}
+
+.divider {
+  width: 1px;
+  height: 20px;
+  background: var(--border);
+  margin: 0 4px;
 }
 
 .theme-toggle {

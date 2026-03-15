@@ -35,19 +35,22 @@ export function RequestList({ entries, selectedId, onSelect, onClear, connection
              <img src="/brand-logo-light.svg" alt="reqlog" className={styles.logo} />
           )}
         </div>
-        <span className={styles['list-count']}>{entries.length}</span>
         <div className={styles['header-actions']}>
-          <button 
-            className={styles['theme-toggle']} 
-            onClick={toggleTheme}
-            title={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
-          >
-            <Icon name={theme === 'dark' ? 'moon' : 'sun'} size={18} />
-          </button>
-          <div className={`${styles['conn-dot']} ${dotClass}`} title={connectionStatus} />
-          <button className={styles['btn-clear']} onClick={onClear} title="Clear all requests">
-            <Icon name="trash" size={16} />
-          </button>
+          <div className={styles['action-group-right']}>
+            <span className={styles['list-count']}>{entries.length}</span>
+            <div className={styles['divider']} />
+            <button
+              className={styles['theme-toggle']}
+              onClick={toggleTheme}
+              title={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
+            >
+              <Icon name={theme === 'dark' ? 'moon' : 'sun'} size={18} />
+            </button>
+            <div className={`${styles['conn-dot']} ${dotClass}`} title={connectionStatus} />
+            <button className={styles['btn-clear']} onClick={onClear} title="Clear all requests">
+              <Icon name="trash" size={16} />
+            </button>
+          </div>
         </div>
       </div>
       <div className={styles['list-body']}>

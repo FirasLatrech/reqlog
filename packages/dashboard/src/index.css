@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
@@ -16,7 +18,7 @@
   --bg-tertiary: #18181b;  /* Zinc 900 */
   --bg-hover: #27272a;     /* Zinc 800 */
   --bg-selected: #27272a;  /* Zinc 800 */
-  
+
   --border: #27272a;       /* Zinc 800 */
   --border-subtle: #18181b; /* Zinc 900 */
   --border-selected: #3f3f46; /* Zinc 700 */
@@ -24,7 +26,7 @@
   --text-primary: #fafafa; /* Zinc 50 */
   --text-secondary: #a1a1aa; /* Zinc 400 */
   --text-muted: #71717a;   /* Zinc 500 */
-  
+
   --accent: #ffffff;       /* White accent */
   --accent-contrast: #000000;
 
@@ -50,8 +52,8 @@
   --diff-added-text: #4ade80;
   --diff-removed-bg: rgba(239, 68, 68, 0.1);
   --diff-removed-text: #f87171;
-  
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+  font-family: 'Montserrat', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   font-size: 13px;
   line-height: 1.5;
   color: var(--text-primary);
@@ -66,7 +68,7 @@
   --bg-tertiary: #f4f4f5;  /* Zinc 100 */
   --bg-hover: #f4f4f5;     /* Zinc 100 */
   --bg-selected: #f4f4f5;  /* Zinc 100 */
-  
+
   --border: #e4e4e7;       /* Zinc 200 */
   --border-subtle: #f4f4f5; /* Zinc 100 */
   --border-selected: #d4d4d8; /* Zinc 300 */
@@ -74,7 +76,7 @@
   --text-primary: #09090b; /* Zinc 950 */
   --text-secondary: #52525b; /* Zinc 600 */
   --text-muted: #a1a1aa;   /* Zinc 400 */
-  
+
   --accent: #09090b;       /* Zinc 950 accent */
   --accent-contrast: #ffffff;
 
@@ -100,6 +102,8 @@
   --diff-added-text: #15803d;
   --diff-removed-bg: rgba(220, 38, 38, 0.1);
   --diff-removed-text: #b91c1c;
+
+  font-family: 'Montserrat', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
 
 
