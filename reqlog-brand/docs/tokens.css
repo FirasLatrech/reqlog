@@ -1,0 +1,27 @@
+/**
+ * reqlog brand tokens
+ * Import this file into your project to use the official brand colors.
+ */
+
+:root {
+  --reqlog-black:       #0a0a0d;
+  --reqlog-surface:     #111114;
+  --reqlog-surface-2:   #1a1a1f;
+  --reqlog-white:       #ffffff;
+  --reqlog-green:       #00D084;
+  --reqlog-muted:       #6e6e80;
+  --reqlog-muted-dark:  #4e4e5a;
+  --reqlog-muted-light: #b0b0bc;
+  --reqlog-border:      #1c1c22;
+  --reqlog-border-light:#e8e8ea;
+
+  /* Typography */
+  --reqlog-font: -apple-system, BlinkMacSystemFont, 'Inter', 'SF Pro Display', sans-serif;
+  --reqlog-weight-strong: 700;
+  --reqlog-weight-light:  200;
+
+  /* Radius */
+  --reqlog-radius-icon:    13px;
+  --reqlog-radius-icon-sm: 4px;
+  --reqlog-radius-circle:  9999px;
+}

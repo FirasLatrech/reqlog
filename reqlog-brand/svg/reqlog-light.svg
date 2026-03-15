@@ -1,0 +1,6 @@
+<svg width="148" height="32" viewBox="0 0 148 32" xmlns="http://www.w3.org/2000/svg">
+  <rect x="0" y="0" width="32" height="32" rx="8" fill="#0a0a0d"/>
+  <line x1="8" y1="16" x2="24" y2="16" stroke="white" stroke-width="2" stroke-linecap="round"/>
+  <circle cx="24" cy="16" r="3.5" fill="#00D084"/>
+  <text x="42" y="22" font-family="-apple-system,BlinkMacSystemFont,'Inter','SF Pro Display',sans-serif" font-size="18" font-weight="600" fill="#0a0a0d" letter-spacing="-0.6">req<tspan font-weight="300" fill="#6e6e80">log</tspan></text>
+</svg>

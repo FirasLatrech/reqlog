@@ -1,0 +1,18 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="1200" height="630" fill="#0a0a0d"/>
+  <!-- Subtle grid -->
+  <line x1="0" y1="315" x2="1200" y2="315" stroke="#111116" stroke-width="1"/>
+  <line x1="600" y1="0" x2="600" y2="630" stroke="#111116" stroke-width="1"/>
+  <!-- Large icon mark centered left -->
+  <rect x="120" y="215" width="200" height="200" rx="48" fill="#111114"/>
+  <line x1="160" y1="315" x2="280" y2="315" stroke="white" stroke-width="10" stroke-linecap="round"/>
+  <circle cx="280" cy="315" r="22" fill="#00D084"/>
+  <!-- Wordmark -->
+  <text x="360" y="340" font-family="-apple-system,BlinkMacSystemFont,'Inter','SF Pro Display',sans-serif" font-size="96" font-weight="700" fill="#ffffff" letter-spacing="-4">req<tspan font-weight="200" fill="#2a2a38">log</tspan></text>
+  <!-- Tagline -->
+  <text x="362" y="396" font-family="-apple-system,BlinkMacSystemFont,'Inter',sans-serif" font-size="22" font-weight="400" fill="#3a3a4a" letter-spacing="0.5">Live HTTP request dashboard · Zero config · Open source</text>
+  <!-- Green dot accent bottom left -->
+  <circle cx="120" cy="540" r="6" fill="#00D084"/>
+  <line x1="134" y1="540" x2="220" y2="540" stroke="#1a1a22" stroke-width="1.5" stroke-linecap="round"/>
+</svg>
