@@ -96,8 +96,12 @@
   padding: 32px; /* Increased padding */
 }
 
-.detail-body::-webkit-scrollbar { width: 6px; }
-.detail-body::-webkit-scrollbar-thumb { background: var(--border); border-radius: 99px; }
+.divider {
+  grid-column: 1 / -1;
+  height: 1px;
+  background: var(--border-subtle);
+  margin: 16px 0;
+}
 
 /* Overview Section Improvements */
 .overview-grid {

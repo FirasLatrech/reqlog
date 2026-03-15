@@ -108,6 +108,7 @@ export function DetailPane({ entry, prevEntry, onClose }: Props) {
               <span className={styles['ov-label']}>Timestamp</span>
               <span className={styles['ov-value']}>{new Date(entry.timestamp).toLocaleString()}</span>
             </div>
+            <div className={styles['divider']} />
             <div className={styles['replay-section']}>
               <button
                 className={styles['btn-replay']}

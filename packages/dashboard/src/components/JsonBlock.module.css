@@ -4,10 +4,41 @@
   gap: 16px;
 }
 
-.json-block {
+.json-wrapper {
+  position: relative;
   background: var(--bg-tertiary);
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+.copy-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  padding: 4px 8px;
+  font-size: 11px;
+  background: var(--bg-primary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  color: var(--text-secondary);
+  cursor: pointer;
+  opacity: 0;
+  transition: all 0.2s ease;
+  z-index: 10;
+}
+
+.json-wrapper:hover .copy-btn {
+  opacity: 1;
+}
+
+.copy-btn:hover {
+  background: var(--bg-hover);
+  color: var(--text-primary);
+  border-color: var(--border-selected);
+}
+
+.json-block {
   padding: 16px;
   color: var(--text-primary);
   overflow-x: auto;
@@ -16,6 +47,7 @@
   line-height: 1.6;
   font-family: 'Geist Mono', 'JetBrains Mono', ui-monospace, monospace;
   font-size: 13px;
+  margin: 0;
 }
 
 .empty-body { color: var(--text-muted); font-style: italic; font-size: 12px; }
