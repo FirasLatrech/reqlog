@@ -1,0 +1,49 @@
+{
+  "name": "@reqlog/fastify",
+  "version": "0.1.0",
+  "description": "Fastify plugin for reqlog HTTP request logger",
+  "license": "MIT",
+  "keywords": ["fastify", "http", "request", "logger", "plugin", "debugger", "dashboard", "reqlog"],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FirasLatrech/reqlog.git",
+    "directory": "packages/fastify"
+  },
+  "homepage": "https://github.com/FirasLatrech/reqlog#readme",
+  "bugs": {
+    "url": "https://github.com/FirasLatrech/reqlog/issues"
+  },
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": ["dist"],
+  "exports": {
+    ".": {
+      "import": "./dist/esm/index.js",
+      "require": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "engines": { "node": ">=18.0.0" },
+  "scripts": {
+    "build": "tsc -b && tsc -p tsconfig.esm.json && echo '{\"type\":\"module\"}' > dist/esm/package.json",
+    "clean": "rm -rf dist",
+    "prepack": "bun run clean && bun run build"
+  },
+  "dependencies": {
+    "@reqlog/core": "0.1.0"
+  },
+  "peerDependencies": {
+    "fastify": ">=4.0.0",
+    "fastify-plugin": ">=4.5.0"
+  },
+  "peerDependenciesMeta": {
+    "fastify": { "optional": false },
+    "fastify-plugin": { "optional": false }
+  },
+  "devDependencies": {
+    "typescript": "^5.4.0",
+    "@types/node": "^20.0.0",
+    "fastify": "^4.0.0",
+    "fastify-plugin": "^4.5.0"
+  }
+}
