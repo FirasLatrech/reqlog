@@ -8,7 +8,7 @@
 </p>
 
 <p align="center">
-  <a href="https://www.npmjs.com/package/@reqlog/core"><img src="https://img.shields.io/npm/v/@reqlog/core?color=22c55e&label=npm" alt="npm version" /></a>
+  <a href="https://www.npmjs.com/package/reqlog-core"><img src="https://img.shields.io/npm/v/reqlog-core?color=22c55e&label=npm" alt="npm version" /></a>
   <a href="https://github.com/FirasLatrech/reqlog/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue" alt="MIT License" /></a>
   <img src="https://img.shields.io/badge/Express-4%20%26%205-black?logo=express" alt="Express compatible" />
   <img src="https://img.shields.io/badge/NestJS-9%2B-ea2845?logo=nestjs" alt="NestJS compatible" />
@@ -27,14 +27,14 @@
 ## Install
 
 ```bash
-npm install @reqlog/express
+npm install reqlog-express
 ```
 
 ### Express — 3 lines, done
 
 ```ts
 import express from 'express';
-import { reqlog } from '@reqlog/express';
+import { reqlog } from 'reqlog-express';
 
 const app = express();
 app.use(reqlog());          // dashboard opens → http://localhost:9000
@@ -48,13 +48,13 @@ That's it. Open [localhost:9000](http://localhost:9000) and start making request
 ### NestJS
 
 ```bash
-npm install @reqlog/nestjs
+npm install reqlog-nestjs
 ```
 
 ```ts
 // app.module.ts
 import { Module } from '@nestjs/common';
-import { ReqlogModule } from '@reqlog/nestjs';
+import { ReqlogModule } from 'reqlog-nestjs';
 
 @Module({
   imports: [ReqlogModule.forRoot()],
@@ -65,12 +65,12 @@ export class AppModule {}
 ### Fastify
 
 ```bash
-npm install @reqlog/fastify
+npm install reqlog-fastify
 ```
 
 ```ts
 import Fastify from 'fastify';
-import { reqlogPlugin } from '@reqlog/fastify';
+import { reqlogPlugin } from 'reqlog-fastify';
 
 const app = Fastify();
 await app.register(reqlogPlugin);
@@ -139,10 +139,10 @@ reqlog is a **dev tool**. It will print a warning if `NODE_ENV=production`. Don'
 
 | Package | Description |
 |---------|-------------|
-| [`@reqlog/core`](packages/core) | Framework-agnostic engine |
-| [`@reqlog/express`](packages/express) | Express middleware |
-| [`@reqlog/fastify`](packages/fastify) | Fastify plugin |
-| [`@reqlog/nestjs`](packages/nestjs) | NestJS module |
+| [`reqlog-core`](packages/core) | Framework-agnostic engine |
+| [`reqlog-express`](packages/express) | Express middleware |
+| [`reqlog-fastify`](packages/fastify) | Fastify plugin |
+| [`reqlog-nestjs`](packages/nestjs) | NestJS module |
 
 ---
 
