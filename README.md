@@ -18,6 +18,10 @@
 
 <br/>
 
+<p align="center">
+  <img src="docs/demo.gif" alt="reqlog demo — live HTTP request dashboard" width="800" />
+</p>
+
 ---
 
 ## Install
