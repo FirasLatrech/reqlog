@@ -1,0 +1,24 @@
+{
+  "compilerOptions": {
+    "composite": true,
+    "declaration": true,
+    "declarationMap": true,
+    "sourceMap": true,
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "moduleResolution": "node10",
+    "target": "ES2020",
+    "module": "CommonJS",
+    "lib": ["ES2020"]
+  },
+  "references": [
+    { "path": "./packages/core" },
+    { "path": "./packages/nestjs" },
+    { "path": "./packages/express" },
+    { "path": "./packages/fastify" }
+  ],
+  "files": [],
+  "exclude": ["node_modules", "**/dist/**", "examples/**", "packages/dashboard/**"]
+}

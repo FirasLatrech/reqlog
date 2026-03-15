@@ -1,0 +1,25 @@
+{
+  "name": "reqlog",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FirasLatrech/reqlog.git"
+  },
+  "homepage": "https://github.com/FirasLatrech/reqlog#readme",
+  "bugs": {
+    "url": "https://github.com/FirasLatrech/reqlog/issues"
+  },
+  "workspaces": ["packages/*", "examples/*"],
+  "scripts": {
+    "build": "bun run --filter @reqlog/core build && bun run --filter @reqlog/dashboard build && bun run --filter @reqlog/nestjs build && bun run --filter @reqlog/express build && bun run --filter @reqlog/fastify build",
+    "dev": "bun run --filter @reqlog/dashboard dev",
+    "typecheck": "tsc -b",
+    "test": "bun test packages/core/src/test packages/express/src/test packages/fastify/src/test",
+    "test:coverage": "bun test --coverage packages/core/src/test packages/express/src/test packages/fastify/src/test",
+    "prepublishOnly": "bun run build && bun run typecheck && bun run test"
+  },
+  "devDependencies": {
+    "typescript": "^5.4.0",
+    "@types/node": "^20.0.0"
+  }
+}
