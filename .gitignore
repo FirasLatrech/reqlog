@@ -6,3 +6,11 @@ dist/
 .DS_Store
 *.log
 coverage/
+packages/core/src/*.js
+packages/core/src/*.js.map
+packages/core/src/*.d.ts
+packages/core/src/*.d.ts.map
+
+# Go
+packages/go/dashboard_dist/
+packages/go/example/example

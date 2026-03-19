@@ -1,7 +1,7 @@
 import { describe, it, expect, afterEach, spyOn } from 'bun:test';
 import * as http from 'http';
-import { ReqlogServer } from '../server.js';
-import { createInterceptor } from '../interceptor.js';
+import { ReqlogServer } from '../server.ts';
+import { createInterceptor } from '../interceptor.ts';
 
 async function request(
   options: http.RequestOptions,

@@ -61,4 +61,45 @@ describe('reqlog-fastify', () => {
     expect(entry.method).toBe('GET');
     expect(entry.statusCode).toBe(200);
   });
+
+  it('captures parsed POST bodies without hanging the request', async () => {
+    const dashboardPort = 19500 + Math.floor(Math.random() * 400);
+    const appPort = 19900 + Math.floor(Math.random() * 90);
+
+    app = Fastify();
+    await app.register(reqlogPlugin, { port: dashboardPort, autoOpen: false });
+
+    app.post('/login', async (request, reply) => {
+      const body = (request.body ?? {}) as { username?: string };
+      if (!body.username) {
+        reply.code(400);
+        return { error: 'username required' };
+      }
+      reply.code(201);
+      return { token: 'abc123', user: body.username };
+    });
+
+    await app.listen({ port: appPort });
+    await new Promise((r) => setTimeout(r, 300));
+
+    const appRes = await fetch(`http://localhost:${appPort}/login`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ username: 'firas' }),
+    });
+
+    expect(appRes.status).toBe(201);
+    expect(await appRes.json()).toEqual({ token: 'abc123', user: 'firas' });
+
+    await new Promise((r) => setTimeout(r, 200));
+
+    const dashRes = await httpGet(`http://localhost:${dashboardPort}/api/requests`);
+    expect(dashRes.status).toBe(200);
+
+    const entries = JSON.parse(dashRes.body);
+    const entry = entries.find((e: { url: string; method: string }) => e.url === '/login' && e.method === 'POST');
+    expect(entry).toBeDefined();
+    expect(entry.requestBody).toEqual({ username: 'firas' });
+    expect(entry.statusCode).toBe(201);
+  });
 });

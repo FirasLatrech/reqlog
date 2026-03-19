@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'bun:test';
-import { RingBuffer } from '../ring-buffer.js';
+import { RingBuffer } from '../ring-buffer.ts';
 
 describe('RingBuffer', () => {
   it('push adds items', () => {

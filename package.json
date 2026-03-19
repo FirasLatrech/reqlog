@@ -9,7 +9,7 @@
   "bugs": {
     "url": "https://github.com/FirasLatrech/reqlog/issues"
   },
-  "workspaces": ["packages/*", "examples/*"],
+  "workspaces": ["packages/*"],
   "scripts": {
     "build": "bun run --filter reqlog-core build && bun run --filter @reqlog/dashboard build && bun run --filter reqlog-nestjs build && bun run --filter reqlog-express build && bun run --filter reqlog-fastify build",
     "dev": "bun run --filter @reqlog/dashboard dev",

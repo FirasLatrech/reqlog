@@ -1,6 +1,6 @@
 import * as http from 'http';
 import * as net from 'net';
-import type { ReqlogEntry } from '../types.js';
+import type { ReqlogEntry } from '../types.ts';
 
 export function makeEntry(overrides: Partial<ReqlogEntry> = {}): ReqlogEntry {
   return {

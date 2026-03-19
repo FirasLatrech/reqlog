@@ -15,13 +15,19 @@ export const reqlogPlugin = fp(
     const intercept = createInterceptor(server, options);
 
     fastify.addHook(
-      'onRequest',
+      'preHandler',
       (
         request: FastifyRequest,
         reply: FastifyReply,
         done: HookHandlerDoneFunction
       ) => {
-        intercept(request.raw as InterceptorRequest, reply.raw as InterceptorResponse, (err?: unknown) => done(err as Error | undefined));
+        const rawRequest = request.raw as InterceptorRequest;
+        rawRequest.body = request.body;
+        intercept(
+          rawRequest,
+          reply.raw as InterceptorResponse,
+          (err?: unknown) => done(err as Error | undefined)
+        );
       }
     );
   },

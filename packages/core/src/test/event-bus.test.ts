@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'bun:test';
-import { EventBus } from '../event-bus.js';
-import type { ReqlogEntry } from '../types.js';
+import { EventBus } from '../event-bus.ts';
+import type { ReqlogEntry } from '../types.ts';
 
 function makeEntry(overrides: Partial<ReqlogEntry> = {}): ReqlogEntry {
   return {

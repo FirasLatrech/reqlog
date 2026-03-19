@@ -2,8 +2,12 @@
   "name": "nestjs-example",
   "private": true,
   "version": "0.1.0",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "start": "node dist/main.js"
+  },
   "dependencies": {
-    "reqlog-nestjs": "workspace:*",
+    "reqlog-nestjs": "0.1.0",
     "@nestjs/common": "^10.0.0",
     "@nestjs/core": "^10.0.0",
     "@nestjs/platform-express": "^10.0.0",
