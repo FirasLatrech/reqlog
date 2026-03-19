@@ -3,6 +3,7 @@ export interface ReqlogOptions {
   maxRequests?: number;
   slowThreshold?: number;
   autoOpen?: boolean;
+  allowInProd?: boolean;
 }
 
 export interface ReqlogEntry {

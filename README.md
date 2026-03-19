@@ -131,7 +131,13 @@ No external dependencies. No database. No config files. Just middleware → dash
 
 ## Development only
 
-reqlog is a **dev tool**. It will print a warning if `NODE_ENV=production`. Don't ship it to prod — it adds overhead and exposes a dashboard on an open port.
+reqlog is a **dev tool**. It is **blocked by default** when `NODE_ENV=production` — the dashboard won't start and no port will be opened. If you need reqlog in a production environment (e.g. staging with production-like config), you can explicitly override:
+
+```ts
+reqlog({ allowInProd: true })
+```
+
+Only use this if you understand the security implications — leaving dev tools enabled in production is a common source of vulnerabilities.
 
 ---
 

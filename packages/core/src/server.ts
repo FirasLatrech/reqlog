@@ -13,6 +13,8 @@ export class ReqlogServer {
   private sseManager: SseManager;
   private httpServer: http.Server;
   private options: Required<ReqlogOptions>;
+  private startPromise: Promise<void> | null = null;
+  private blocked = false;
   #opened = false;
 
   constructor(options: ReqlogOptions = {}) {
@@ -21,6 +23,7 @@ export class ReqlogServer {
       maxRequests: options.maxRequests ?? 200,
       slowThreshold: options.slowThreshold ?? 200,
       autoOpen: options.autoOpen ?? true,
+      allowInProd: options.allowInProd ?? false,
     };
     this.ringBuffer = new RingBuffer<ReqlogEntry>(this.options.maxRequests);
     this.eventBus = new EventBus();
@@ -30,6 +33,13 @@ export class ReqlogServer {
 
   get slowThreshold(): number {
     return this.options.slowThreshold;
+  }
+
+  private dashboardUrl(): string {
+    const address = this.httpServer.address();
+    const port =
+      typeof address === 'object' && address !== null ? address.port : this.options.port;
+    return `http://localhost:${port}`;
   }
 
   private dashboardDir(): string {
@@ -105,35 +115,67 @@ export class ReqlogServer {
   }
 
   broadcast(entry: ReqlogEntry): void {
+    if (this.blocked) return;
     const data = `data: ${JSON.stringify(entry)}\n\n`;
     this.sseManager.broadcast(data);
   }
 
   async start(): Promise<void> {
-    if (process.env.NODE_ENV === 'production') {
+    if (process.env.NODE_ENV === 'production' && !this.options.allowInProd) {
       console.warn(
-        '[reqlog] WARNING: reqlog is a development tool and should not be used in production. ' +
-        'Set NODE_ENV to something other than "production" or remove reqlog from your app.'
+        '[reqlog] BLOCKED: reqlog is disabled in production (NODE_ENV=production). ' +
+        'To override, pass { allowInProd: true } — only do this if you understand the security implications.'
       );
+      this.blocked = true;
+      return;
     }
-    return new Promise((resolve) => {
-      this.httpServer.listen(this.options.port, () => {
-        console.log(`[reqlog] Dashboard running at http://localhost:${this.options.port}`);
+
+    if (this.httpServer.listening) {
+      return;
+    }
+
+    if (this.startPromise) {
+      return this.startPromise;
+    }
+
+    this.startPromise = new Promise((resolve, reject) => {
+      const onError = (err: Error) => {
+        this.startPromise = null;
+        reject(err);
+      };
+
+      const onListening = () => {
+        this.httpServer.off('error', onError);
+        const dashboardUrl = this.dashboardUrl();
+        console.log(`[reqlog] Dashboard running at ${dashboardUrl}`);
         if (this.options.autoOpen && !this.#opened) {
           this.#opened = true;
           import('open')
-            .then(({ default: open }) => { open(`http://localhost:${this.options.port}`); })
+            .then(({ default: open }) => {
+              void open(dashboardUrl);
+            })
             .catch(() => {});
         }
         resolve();
-      });
+      };
+
+      this.httpServer.once('error', onError);
+      this.httpServer.once('listening', onListening);
+      this.httpServer.listen(this.options.port);
     });
+
+    return this.startPromise;
   }
 
   stop(): Promise<void> {
     this.sseManager.closeAll();
+    this.startPromise = null;
+    if (!this.httpServer.listening) {
+      return Promise.resolve();
+    }
     return new Promise((resolve, reject) => {
       this.httpServer.close((err) => {
+        this.startPromise = null;
         if (err) reject(err);
         else resolve();
       });
