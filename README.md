@@ -13,6 +13,7 @@
   <img src="https://img.shields.io/badge/Express-4%20%26%205-black?logo=express" alt="Express compatible" />
   <img src="https://img.shields.io/badge/NestJS-9%2B-ea2845?logo=nestjs" alt="NestJS compatible" />
   <img src="https://img.shields.io/badge/Fastify-4%2B-black?logo=fastify" alt="Fastify compatible" />
+  <img src="https://img.shields.io/badge/Go-1.22%2B-00ADD8?logo=go&logoColor=white" alt="Go 1.22+" />
   <img src="https://img.shields.io/badge/Node.js-%3E%3D18-339933?logo=node.js&logoColor=white" alt="Node.js >= 18" />
 </p>
 
@@ -77,6 +78,60 @@ await app.register(reqlogPlugin);
 await app.listen({ port: 3000 });
 ```
 
+### Go (net/http, Gin, Chi)
+
+```bash
+go get github.com/reqlog/reqlog-go
+```
+
+```go
+package main
+
+import (
+    "net/http"
+    reqlog "github.com/reqlog/reqlog-go"
+)
+
+func main() {
+    rl := reqlog.New(reqlog.Options{Port: 9000})
+    rl.Start()
+    defer rl.Stop()
+
+    mux := http.NewServeMux()
+    mux.HandleFunc("/hello", func(w http.ResponseWriter, r *http.Request) {
+        w.Write([]byte("Hello!"))
+    })
+
+    http.ListenAndServe(":3000", rl.Middleware()(mux))
+}
+```
+
+<details>
+<summary>Gin example</summary>
+
+```go
+import "github.com/gin-gonic/gin"
+
+r := gin.Default()
+r.Use(rl.GinMiddleware())
+```
+
+Build with `go build -tags gin` to enable Gin support.
+</details>
+
+<details>
+<summary>Chi example</summary>
+
+```go
+import "github.com/go-chi/chi/v5"
+
+r := chi.NewRouter()
+r.Use(rl.ChiMiddleware())
+```
+
+Chi uses standard `net/http` middleware — no build tags needed.
+</details>
+
 ---
 
 ## What you get
@@ -98,6 +153,7 @@ app.use(reqlog({
   maxRequests: 200,     // entries kept in memory (default: 200)
   slowThreshold: 200,   // ms before a request is flagged slow (default: 200)
   autoOpen: true,       // open browser on start (default: true)
+  allowInProd: false,   // block in production unless explicitly true
 }));
 ```
 
@@ -107,13 +163,14 @@ app.use(reqlog({
 | `maxRequests` | `number` | `200` | Max entries in the in-memory ring buffer |
 | `slowThreshold` | `number` | `200` | Latency (ms) above which a request is flagged slow |
 | `autoOpen` | `boolean` | `true` | Auto-open the dashboard in your browser |
+| `allowInProd` | `boolean` | `false` | Override production blocking (use with caution) |
 
 ---
 
 ## How it works
 
 ```
-Your App (Express/NestJS/Fastify)
+Your App (Express / NestJS / Fastify / Go)
   │
   ├── reqlog middleware intercepts req/res
   │     ├── captures headers, body, timing
@@ -131,10 +188,23 @@ No external dependencies. No database. No config files. Just middleware → dash
 
 ## Development only
 
-reqlog is a **dev tool**. It is **blocked by default** when `NODE_ENV=production` — the dashboard won't start and no port will be opened. If you need reqlog in a production environment (e.g. staging with production-like config), you can explicitly override:
+reqlog is a **dev tool**. It is **blocked by default** in production — the dashboard won't start and no port will be opened.
+
+| Runtime | Env variable checked |
+|---------|---------------------|
+| Node.js | `NODE_ENV=production` |
+| Go | `GO_ENV=production` or `APP_ENV=production` |
+
+To explicitly override (e.g. staging with production-like config):
 
 ```ts
+// Node.js
 reqlog({ allowInProd: true })
+```
+
+```go
+// Go
+reqlog.New(reqlog.Options{AllowInProd: true})
 ```
 
 Only use this if you understand the security implications — leaving dev tools enabled in production is a common source of vulnerabilities.
@@ -145,10 +215,11 @@ Only use this if you understand the security implications — leaving dev tools 
 
 | Package | Description |
 |---------|-------------|
-| [`reqlog-core`](packages/core) | Framework-agnostic engine |
+| [`reqlog-core`](packages/core) | Framework-agnostic Node.js engine |
 | [`reqlog-express`](packages/express) | Express middleware |
 | [`reqlog-fastify`](packages/fastify) | Fastify plugin |
 | [`reqlog-nestjs`](packages/nestjs) | NestJS module |
+| [`reqlog-go`](packages/go) | Go adapter (net/http, Gin, Chi) |
 
 ---
 
