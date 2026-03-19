@@ -1,6 +1,6 @@
 {
   "name": "reqlog-core",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Framework-agnostic HTTP request logger engine with live dashboard",
   "license": "MIT",
   "keywords": ["http", "request", "logger", "debugger", "dashboard", "inspector", "middleware", "sse", "devtools"],

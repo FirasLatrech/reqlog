@@ -1,6 +1,6 @@
 {
   "name": "reqlog-express",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Express middleware for reqlog HTTP request logger",
   "license": "MIT",
   "keywords": ["express", "http", "request", "logger", "middleware", "debugger", "dashboard", "reqlog"],
@@ -30,7 +30,7 @@
     "prepack": "bun run clean && bun run build"
   },
   "dependencies": {
-    "reqlog-core": "0.1.0"
+    "reqlog-core": "0.2.0"
   },
   "peerDependencies": {
     "express": ">=4.0.0"

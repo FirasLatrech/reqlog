@@ -1,6 +1,6 @@
 {
   "name": "reqlog-fastify",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Fastify plugin for reqlog HTTP request logger",
   "license": "MIT",
   "keywords": ["fastify", "http", "request", "logger", "plugin", "debugger", "dashboard", "reqlog"],
@@ -30,7 +30,7 @@
     "prepack": "bun run clean && bun run build"
   },
   "dependencies": {
-    "reqlog-core": "0.1.0"
+    "reqlog-core": "0.2.0"
   },
   "peerDependencies": {
     "fastify": ">=4.0.0",
