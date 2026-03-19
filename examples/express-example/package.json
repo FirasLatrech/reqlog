@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.1.0",
   "dependencies": {
-    "reqlog-express": "0.1.0",
+    "reqlog-express": "0.2.0",
     "express": "^4.18.0"
   },
   "devDependencies": {
