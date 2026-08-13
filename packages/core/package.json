@@ -27,7 +27,7 @@
   "engines": { "node": ">=18.0.0" },
   "scripts": {
     "build": "tsc -b && tsc -p tsconfig.esm.json && echo '{\"type\":\"module\"}' > dist/esm/package.json",
-    "clean": "rm -rf dist",
+    "clean": "rm -rf dist *.tsbuildinfo",
     "test": "bun test src/test",
     "prepack": "bun run clean && cd ../dashboard && bun run build && cd ../core && bun run build"
   },
